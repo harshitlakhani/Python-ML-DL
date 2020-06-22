@@ -7,7 +7,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(BASE_DIR, "images")
 
-os.chdir('C:\\Users\\lakha\\OneDrive\\Documents\\faceReco\\images\\pari')
+os.chdir('D:\GitHub\Algorithms---Python\openCV\Face Recognition\images\harshit')
 
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt2.xml')
