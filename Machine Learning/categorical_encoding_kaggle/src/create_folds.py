@@ -15,7 +15,6 @@ if __name__ == '__main__':
     kf = model_selection.StratifiedKFold(n_splits=5, shuffle=False, random_state=34)
 
     for fold,(train_idx, validation_idx) in enumerate(kf.split(X=df, y=df.target.values)):
-        print(train_idx, validation_idx)
         df.loc[validation_idx, 'kfold'] = fold
 
 df.to_csv('../input/train_folds.csv',index=False)
