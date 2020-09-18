@@ -16,6 +16,7 @@ def predict(test_data_path, model_type, model_path):
 
     for FOLD in range(5):
         df = pd.read_csv(test_data_path)
+        print(df.shape)
         encoders = joblib.load(os.path.join(model_path, f"{model_type}_{FOLD}_label_encoder.pkl"))
         cols = joblib.load(os.path.join(model_path, f"{model_type}_{FOLD}_columns.pkl"))
         for c in encoders:
@@ -32,7 +33,7 @@ def predict(test_data_path, model_type, model_path):
             predictions = preds
         else:
             predictions += preds
-    print(predictions.shape)
+    print(type(predictions))
     predictions /= 5
 
     sub = pd.DataFrame(np.column_stack((test_idx, predictions)), columns=["id", "target"])
